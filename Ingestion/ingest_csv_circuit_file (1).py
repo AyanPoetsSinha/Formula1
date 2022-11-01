@@ -60,6 +60,11 @@ circuits_df.printSchema()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ###Manually inserting the schema type
+
+# COMMAND ----------
+
 circuits_schema=StructType(fields=[StructField("circuitId",IntegerType(),False),
                                    StructField("circuitRef",StringType(),False),
                                    StructField("name",StringType(),False),
@@ -80,9 +85,25 @@ circuit_df = spark.read \
 
 # COMMAND ----------
 
+circuits_df.printSchema()
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ###Select the important Columns
 
 # COMMAND ----------
 
-circuits
+from pyspark.sql.functions import col
+
+# COMMAND ----------
+
+circuits_selected_df=circuit_df.select(col("circuitId"),col("circuitRef"),col("name"),col("location"),col("country"),col("lat"),col("lng"),col("alt"))
+
+# COMMAND ----------
+
+display(circuits_selected_df)
+
+# COMMAND ----------
+
+
