@@ -106,4 +106,27 @@ display(circuits_selected_df)
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ###changing the column names
+
+# COMMAND ----------
+
+circuits_renamed_dataframe=circuits_selected_df.withColumnRenamed('circuitId','circuit_Id') \
+.withColumnRenamed('circuitRef','circuit_ref') \
+.withColumnRenamed('lat','Latitufe') \
+.withColumnRenamed('lng','longitude') \
+.withColumnRenamed('alt','circuit_Id') \
+.withColumnRenamed('circuitId','circuit_Id') 
+
+# COMMAND ----------
+
+display (circuits_renamed_dataframe)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### ad additional column
+
+# COMMAND ----------
+
 
