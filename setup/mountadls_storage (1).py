@@ -29,14 +29,6 @@ configs = {"fs.azure.account.auth.type": "OAuth",
 
 # COMMAND ----------
 
-container_name = "raw"
-dbutils.fs.mount(
-  source = f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/",
-  mount_point = f"/mnt/{storage_account_name}/{container_name}",
-  extra_configs = configs)
-
-# COMMAND ----------
-
 dbutils.fs.ls("mnt/formula1ayansa0001/raw")
 
 # COMMAND ----------
