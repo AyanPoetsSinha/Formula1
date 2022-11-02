@@ -45,11 +45,21 @@ def mount_adls(container_name):
 
 # COMMAND ----------
 
+
 mount_adls("raw")
 
 # COMMAND ----------
 
 mount_adls("processed")
+
+# COMMAND ----------
+
+dbutils.fs.mounts()
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls /mnt/formula1ayansa0001/processed
 
 # COMMAND ----------
 

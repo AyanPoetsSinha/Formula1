@@ -115,8 +115,8 @@ circuits_renamed_dataframe=circuits_selected_df.withColumnRenamed('circuitId','c
 .withColumnRenamed('circuitRef','circuit_ref') \
 .withColumnRenamed('lat','Latitufe') \
 .withColumnRenamed('lng','longitude') \
-.withColumnRenamed('alt','circuit_Id') \
-.withColumnRenamed('circuitId','circuit_Id') 
+.withColumnRenamed('alt','Altitude')
+
 
 # COMMAND ----------
 
@@ -125,7 +125,45 @@ display (circuits_renamed_dataframe)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### ad additional column
+# MAGIC ### add additional column
+
+# COMMAND ----------
+
+from pyspark.sql.functions import current_timestamp 
+#--,lit
+
+# COMMAND ----------
+
+circuits_final_df=circuits_renamed_dataframe \
+.withColumn('ingestion_date',current_timestamp()) 
+# --\
+# --.withColumn('env',lit('Production'))
+
+# COMMAND ----------
+
+display(circuits_final_df)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### write the data to datalake using parquet
+
+# COMMAND ----------
+
+circuits_final_df.write.mode("overwrite").parquet("/mnt/formula1ayansa0001/processed/circuits_processed")
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls /mnt/formula1ayansa0001/processed/circuits_processed
+
+# COMMAND ----------
+
+df=spark.read.parquet("/mnt/formula1ayansa0001/processed/circuits_processed")
+
+# COMMAND ----------
+
+display(df)
 
 # COMMAND ----------
 
