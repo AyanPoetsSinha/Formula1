@@ -7,14 +7,14 @@ dbutils.secrets.list("formula1scope")
 
 # COMMAND ----------
 
-dbutils.secrets.get(scope='formula1scope', key="databricks-app-client-id")
+dbutils.secrets.get(scope='formula1scope', key="clientId")
 
 # COMMAND ----------
 
-storage_account_name="formula1ayansa0001"
-client_id=dbutils.secrets.get(scope='formula1scope', key="databricks-app-client-id")
-tenant_id=dbutils.secrets.get(scope='formula1scope', key="databricks-app-tenant-id")
-client_secret=dbutils.secrets.get(scope='formula1scope', key="databricks-app-client-secret")
+storage_account_name="ayanstorage0001"
+client_id=dbutils.secrets.get(scope='formula1scope', key="clientId")
+tenant_id=dbutils.secrets.get(scope='formula1scope', key="tenantId")
+client_secret=dbutils.secrets.get(scope='formula1scope', key="clientSecrets")
 
 
 # COMMAND ----------
@@ -26,10 +26,6 @@ configs = {"fs.azure.account.auth.type": "OAuth",
           "fs.azure.account.oauth2.client.endpoint": f"https://login.microsoftonline.com/{tenant_id}/oauth2/token"}
 
 
-
-# COMMAND ----------
-
-dbutils.fs.ls("mnt/formula1ayansa0001/raw")
 
 # COMMAND ----------
 
@@ -45,7 +41,6 @@ def mount_adls(container_name):
 
 # COMMAND ----------
 
-
 mount_adls("raw")
 
 # COMMAND ----------
@@ -59,7 +54,7 @@ dbutils.fs.mounts()
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/formula1ayansa0001/processed
+# MAGIC ls /mnt/ayanstorage0001/processed
 
 # COMMAND ----------
 
