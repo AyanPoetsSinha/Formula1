@@ -12,7 +12,7 @@
 circuits_df = spark.read \
 .option("header", True) \
 .option("inferSchema", True) \
-.csv("dbfs:/mnt/formula1ayansa0001/raw/circuits.csv")
+.csv("dbfs:/mnt/ayanstorage0001/raw/circuits.csv")
 
 # COMMAND ----------
 
@@ -81,7 +81,7 @@ circuits_schema=StructType(fields=[StructField("circuitId",IntegerType(),False),
 circuit_df = spark.read \
 .option("header", True) \
 .schema(circuits_schema) \
-.csv("dbfs:/mnt/formula1ayansa0001/raw/circuits.csv")
+.csv("dbfs:/mnt/ayanstorage0001/raw/circuits.csv")
 
 # COMMAND ----------
 
