@@ -176,4 +176,26 @@ display(df)
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ##create partitioin by year in the output and write again
+
+# COMMAND ----------
+
+races_superfinal_df.write.mode("overwrite").partitionBy('race_year').parquet("/mnt/formula1ayansa0001/processed/races_processed")
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls /mnt/formula1ayansa0001/processed/races_processed
+
+# COMMAND ----------
+
+df=spark.read.parquet("/mnt/formula1ayansa0001/processed/races_processed")
+
+# COMMAND ----------
+
+display(df)
+
+# COMMAND ----------
+
 
