@@ -97,7 +97,7 @@ drivers_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/ayanstorage0001/processed/drivers
+# MAGIC ls /mnt/ayanstorage0001/processed/results
 
 # COMMAND ----------
 
