@@ -72,3 +72,7 @@ df=spark.read.parquet("/mnt/ayanstorage0001/processed/lap_times")
 # COMMAND ----------
 
 display(df)
+
+# COMMAND ----------
+
+dbutils.notebook.exit("Success")

@@ -46,7 +46,7 @@ results_schema=StructType(fields=[StructField("resultId",IntegerType(),False),
 
 # COMMAND ----------
 
-results_df=spark.read \
+dbutils.notebook.exit("Success")results_df=spark.read \
 .schema(results_schema) \
 .json('/mnt/ayanstorage0001/raw/results.json')
 
@@ -130,3 +130,7 @@ df=spark.read.parquet("/mnt/ayanstorage0001/processed/results")
 # COMMAND ----------
 
 display(df)
+
+# COMMAND ----------
+
+dbutils.notebook.exit("Success")
