@@ -9,6 +9,14 @@
 
 # COMMAND ----------
 
+# MAGIC %run "../includes/configuration"
+
+# COMMAND ----------
+
+# MAGIC %run "../includes/common_functions"
+
+# COMMAND ----------
+
 circuits_df = spark.read \
 .option("header", True) \
 .option("inferSchema", True) \
