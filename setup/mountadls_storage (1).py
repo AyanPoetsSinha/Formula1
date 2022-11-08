@@ -49,6 +49,10 @@ mount_adls("processed")
 
 # COMMAND ----------
 
+mount_adls("presentation")
+
+# COMMAND ----------
+
 dbutils.fs.mounts()
 
 # COMMAND ----------
