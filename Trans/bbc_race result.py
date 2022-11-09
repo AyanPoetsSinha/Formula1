@@ -4,12 +4,20 @@
 
 # COMMAND ----------
 
+# MAGIC %run "../includes/configuration"
+
+# COMMAND ----------
+
 dbutils.fs.mounts()
 
 # COMMAND ----------
 
 # MAGIC %fs
 # MAGIC ls /mnt/ayanstorage0001/processed
+
+# COMMAND ----------
+
+# MAGIC %run "../includes/configuration"
 
 # COMMAND ----------
 
@@ -30,11 +38,10 @@ circuits_df=spark.read.parquet(f"{processed_folder_path}/circuits") \
 
 # COMMAND ----------
 
-sprint_results_df=spark.read.parquet(f"{processed_folder_path}/sprint_results") \
-.withColumnRenamed("") \
+sprint_results_df=spark.read.parquet(f"{processed_folder_path}/results") \
 .withColumnRenamed("number","drivers_number") \
 .withColumnRenamed("name","driver_name") \
-.withColumnRenamed("nationality" "driver+nationality")
+.withColumnRenamed("nationality","driver_nationality")
 
 # COMMAND ----------
 
