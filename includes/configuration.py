@@ -5,4 +5,4 @@ presentation_folder_path="/mnt/ayanstorage0001/presentation"
 
 # COMMAND ----------
 
-dbutils.notebook.exit("Success")
+

@@ -158,16 +158,16 @@ display(circuits_final_df)
 
 # COMMAND ----------
 
-circuits_final_df.write.mode("overwrite").parquet("/mnt/formula1ayansa0001/processed/circuits_processed")
+circuits_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/circuits")
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/formula1ayansa0001/processed/circuits_processed
+# MAGIC ls /mnt/formula1ayansa0001/processed/circuits
 
 # COMMAND ----------
 
-df=spark.read.parquet("/mnt/formula1ayansa0001/processed/circuits_processed")
+df=spark.read.parquet("/mnt/ayanstorage0001/processed/circuits")
 
 # COMMAND ----------
 

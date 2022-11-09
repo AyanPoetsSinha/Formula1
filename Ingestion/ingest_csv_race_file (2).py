@@ -159,16 +159,16 @@ display(races_superfinal_df)
 
 # COMMAND ----------
 
-races_superfinal_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/races_processed")
+races_superfinal_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/races")
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/ayanstorage0001/processed/races_processed
+# MAGIC ls /mnt/ayanstorage0001/processed/races
 
 # COMMAND ----------
 
-df=spark.read.parquet("/mnt/ayanstorage0001/processed/races_processed")
+df=spark.read.parquet("/mnt/ayanstorage0001/processed/races")
 
 # COMMAND ----------
 
@@ -181,16 +181,16 @@ display(df)
 
 # COMMAND ----------
 
-races_superfinal_df.write.mode("overwrite").partitionBy('race_year').parquet("/mnt/ayanstorage0001/processed/races_processed")
+races_superfinal_df.write.mode("overwrite").partitionBy('race_year').parquet("/mnt/ayanstorage0001/processed/races")
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/ayanstorage0001/processed/races_processed
+# MAGIC ls /mnt/ayanstorage0001/processed/races
 
 # COMMAND ----------
 
-df=spark.read.parquet("/mnt/ayanstorage0001/processed/races_processed")
+df=spark.read.parquet("/mnt/ayanstorage0001/processed/races")
 
 # COMMAND ----------
 

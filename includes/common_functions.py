@@ -6,4 +6,4 @@ def add_ingestion_date(input_df):
 
 # COMMAND ----------
 
-dbutils.notebook.exit("Success")
+
