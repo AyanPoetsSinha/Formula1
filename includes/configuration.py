@@ -5,4 +5,9 @@ presentation_folder_path="/mnt/ayanstorage0001/presentation"
 
 # COMMAND ----------
 
+# MAGIC %fs
+# MAGIC ls /mnt/ayanstorage0001/presentation
+
+# COMMAND ----------
+
 
