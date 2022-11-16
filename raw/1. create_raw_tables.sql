@@ -85,7 +85,7 @@ nationality STRING,
 url STRING
 )
 using json
-options (path "/mnt/ayanstorage0001/raw/constructors.json", header true)
+options (path "/mnt/ayanstorage0001/raw/constructors.json")
 
 -- COMMAND ----------
 
@@ -111,7 +111,11 @@ nationality STRING,
 url STRING
 )
 using json
-options (path "/mnt/ayanstorage0001/raw/drivers.json", header true)
+options (path "/mnt/ayanstorage0001/raw/drivers.json")
+
+-- COMMAND ----------
+
+select * from f1_raw.drivers;
 
 -- COMMAND ----------
 
@@ -123,17 +127,31 @@ options (path "/mnt/ayanstorage0001/raw/drivers.json", header true)
 -- COMMAND ----------
 
 drop table if exists f1_raw.results;
-create table if not exists f1_raw.drivers(driverId INT,
-driverRef INT,
+create table if not exists f1_raw.results(resultId INT,
+raceId INT,
+driverId INT,
+constructorId INT,
 number INT,
-code STRING,
-name STRUCT<forename: STRING, surname: STRING>,
-dob DATE,
-nationality STRING,
-url STRING
+grid INT,
+position INT,
+positionText STRING,
+positionOrder INT,
+points INT,
+laps INT,
+time STRING,
+miliseconds INT,
+fastestLap INT,
+rank INT,
+fastestLapTime STRING,
+fastestLapSpeed FLOAT,
+statusId STRING
 )
 using json
-options (path "/mnt/ayanstorage0001/raw/drivers.json", header true)
+options (path "/mnt/ayanstorage0001/raw/results.json")
+
+-- COMMAND ----------
+
+select * from f1_raw.results;
 
 -- COMMAND ----------
 
@@ -141,6 +159,25 @@ options (path "/mnt/ayanstorage0001/raw/drivers.json", header true)
 -- MAGIC ### create pitstops table
 -- MAGIC - multi line JSON
 -- MAGIC - complex Structure
+
+-- COMMAND ----------
+
+drop table if exists f1_raw.pitstops;
+create table if not exists f1_raw.pitstops(
+raceId INT,
+driverId INT,
+stop STRING,
+lap INT,
+time STRING,
+duration STRING,
+miliseconds INT
+)
+using json
+options (path "/mnt/ayanstorage0001/raw/pitstops.json", multiLine true)
+
+-- COMMAND ----------
+
+select * from f1_raw.pitstops;
 
 -- COMMAND ----------
 
