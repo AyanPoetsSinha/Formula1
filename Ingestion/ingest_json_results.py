@@ -116,7 +116,12 @@ display(results_final_df)
 
 # COMMAND ----------
 
-results_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/results")
+results_final_df.write.mode("overwrite").partitionBy('race_id').format("parquet").saveAsTable("f1_processed.results")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from f1_processed.results;
 
 # COMMAND ----------
 

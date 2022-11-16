@@ -78,7 +78,13 @@ display(constructor_final_df)
 
 # COMMAND ----------
 
-constructor_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/constructors")
+constructor_final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.constructors")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC 
+# MAGIC select * from f1_processed.constructors;
 
 # COMMAND ----------
 

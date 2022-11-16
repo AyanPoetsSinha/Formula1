@@ -173,12 +173,74 @@ duration STRING,
 miliseconds INT
 )
 using json
-options (path "/mnt/ayanstorage0001/raw/pitstops.json", multiLine true)
+options (path "/mnt/ayanstorage0001/raw/pit_stops.json", multiLine true)
 
 -- COMMAND ----------
 
-select * from f1_raw.pitstops;
+show tables;
+
 
 -- COMMAND ----------
 
+select * from f1_raw.pitstops
 
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ##create tables for the list of files
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ##creating tbale for laptime
+-- MAGIC 
+-- MAGIC - csv files
+-- MAGIC - multiple files
+
+-- COMMAND ----------
+
+drop table if exists f1_raw.laptimes;
+create table if not exists f1_raw.laptimes(
+raceId INT,
+driverId INT,
+lap INT,
+position INT,
+time STRING,
+miliseconds INT
+)
+using csv
+options (path "/mnt/ayanstorage0001/raw/lap_times")
+
+-- COMMAND ----------
+
+select * from f1_raw.laptimes;
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ##create qualifying table
+-- MAGIC 
+-- MAGIC - JSON file
+-- MAGIC - multi line json
+-- MAGIC - multiple files
+
+-- COMMAND ----------
+
+drop table if exists f1_raw.qualifying;
+create table if not exists f1_raw.qualifying(
+qualifyId INT,
+raceId INT,
+driverId INT,
+constructorId INT,
+number INT,
+position INT,
+q1 STRING,
+q2 STRING,
+q3 STRING
+)
+using json
+options (path "/mnt/ayanstorage0001/raw/qualifying", multiLine true)
+
+-- COMMAND ----------
+
+select * from f1_raw.qualifying;

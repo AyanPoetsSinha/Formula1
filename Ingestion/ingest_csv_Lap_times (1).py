@@ -63,11 +63,11 @@ lap_times_final_df=lap_times_df \
 
 # COMMAND ----------
 
-lap_times_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/lap_times")
+lap_times_final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.laptimes")
 
 # COMMAND ----------
 
-df=spark.read.parquet("/mnt/ayanstorage0001/processed/lap_times")
+df=spark.read.parquet("/mnt/ayanstorage0001/processed/laptimes")
 
 # COMMAND ----------
 

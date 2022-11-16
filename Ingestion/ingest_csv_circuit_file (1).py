@@ -158,12 +158,17 @@ display(circuits_final_df)
 
 # COMMAND ----------
 
-circuits_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/circuits")
+circuits_final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.circuits")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from f1_processed.circuits;
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls /mnt/formula1ayansa0001/processed/circuits
+# MAGIC ls /mnt/ayanstorage0001/processed/circuits
 
 # COMMAND ----------
 

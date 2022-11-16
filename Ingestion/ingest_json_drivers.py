@@ -92,7 +92,7 @@ display(drivers_final_df)
 
 # COMMAND ----------
 
-drivers_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/drivers")
+drivers_final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.drivers")
 
 # COMMAND ----------
 

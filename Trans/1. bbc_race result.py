@@ -117,7 +117,7 @@ display(final_df.filter("race_year== 2021 and race_name == 'Abu Dhabi Grand Prix
 
 # COMMAND ----------
 
-  final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/presentation/race_result")
+  final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_presentation.raceresults")
 
 # COMMAND ----------
 

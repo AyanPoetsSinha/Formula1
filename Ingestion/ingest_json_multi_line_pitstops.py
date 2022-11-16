@@ -61,11 +61,11 @@ pitstop_final_df=pitstop_df \
 
 # COMMAND ----------
 
-pitstop_final_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/pit_stops")
+pitstop_final_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.pitstops")
 
 # COMMAND ----------
 
-df=spark.read.parquet("/mnt/ayanstorage0001/processed/pit_stops")
+df=spark.read.parquet("/mnt/ayanstorage0001/processed/pitstops")
 
 # COMMAND ----------
 

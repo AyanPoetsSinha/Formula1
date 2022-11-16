@@ -159,7 +159,7 @@ display(races_superfinal_df)
 
 # COMMAND ----------
 
-races_superfinal_df.write.mode("overwrite").parquet("/mnt/ayanstorage0001/processed/races")
+races_superfinal_df.write.mode("overwrite").format("parquet").saveAsTable("f1_processed.races")
 
 # COMMAND ----------
 
@@ -181,7 +181,7 @@ display(df)
 
 # COMMAND ----------
 
-races_superfinal_df.write.mode("overwrite").partitionBy('race_year').parquet("/mnt/ayanstorage0001/processed/races")
+races_superfinal_df.write.mode("overwrite").partitionBy('race_year').format("parquet").saveAsTable("f1_processed.races")
 
 # COMMAND ----------
 
