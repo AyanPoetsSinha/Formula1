@@ -1,6 +1,5 @@
 # Databricks notebook source
 
-
 v_result=dbutils.notebook.run("ingest_csv_circuit_file (1)",0)
 
 # COMMAND ----------
