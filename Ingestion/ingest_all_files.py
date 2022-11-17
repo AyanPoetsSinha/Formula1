@@ -1,5 +1,4 @@
 # Databricks notebook source
-
 v_result=dbutils.notebook.run("ingest_csv_circuit_file (1)",0)
 
 # COMMAND ----------
@@ -71,27 +70,7 @@ v_result
 # COMMAND ----------
 
 # MAGIC %python
-# MAGIC v_result=dbutils.notebook.run("ingest_csv_circuit_file (1)",0)
-
-# COMMAND ----------
-
-# MAGIC %python
-# MAGIC v_result
-
-# COMMAND ----------
-
-# MAGIC %python
 # MAGIC v_result=dbutils.notebook.run("ingest_json_results",0)
-
-# COMMAND ----------
-
-# MAGIC %python
-# MAGIC v_result
-
-# COMMAND ----------
-
-# MAGIC %python
-# MAGIC v_result=dbutils.notebook.run("ingest_csv_circuit_file (1)",0)
 
 # COMMAND ----------
 
