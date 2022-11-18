@@ -1,0 +1,29 @@
+{
+	"name": "pipeline1_ingest_f1_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "ingest circuits file",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/ayan.india.2000@gmail.com/Formula1/Ingestion/ingest_csv_circuit_file (1)"
+				},
+				"linkedServiceName": {
+					"referenceName": "f1databricks",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"concurrency": 1,
+		"annotations": []
+	}
+}
